@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Box, Grid, Button, ButtonGroup } from "@mui/material";
+import { Box, Grid, Button, ButtonGroup, Typography } from "@mui/material";
 
 function Page1() {
 	const contador = useSelector((store) => store.count.count);
@@ -11,8 +11,6 @@ function Page1() {
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container>
 					<Grid item xs={12} md={6}>
-						<h1>Page 2</h1>
-						<h2>Contador: {contador}</h2>
 						<Grid item xs={12}>
 							<ButtonGroup
 								variant="contained"
@@ -26,6 +24,14 @@ function Page1() {
 									Page1
 								</Button>
 							</ButtonGroup>
+						</Grid>
+						<Grid item xs={12}>
+							<Typography variant="h2" component="h2">
+								Page1
+							</Typography>
+							<Typography variant="h3" component="h3">
+								Count: {contador}
+							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>

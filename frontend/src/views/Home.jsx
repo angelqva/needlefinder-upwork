@@ -3,7 +3,14 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { increment_count, decrement_count } from "../redux/count";
-import { Box, Grid, Button, ButtonGroup, TextField } from "@mui/material";
+import {
+	Box,
+	Grid,
+	Button,
+	ButtonGroup,
+	TextField,
+	Typography,
+} from "@mui/material";
 
 function Home() {
 	const dispatch = useDispatch();
@@ -25,8 +32,28 @@ function Home() {
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container>
 					<Grid item xs={12} md={6}>
-						<h1>Page 1</h1>
-						<h1>{contador}</h1>
+						<Grid item xs={12}>
+							<ButtonGroup
+								variant="contained"
+								aria-label="outlined primary button group"
+								sx={{ marginTop: 2 }}
+							>
+								<Button component={RouterLink} to="/">
+									Home
+								</Button>
+								<Button component={RouterLink} to="/page1">
+									Page1
+								</Button>
+							</ButtonGroup>
+						</Grid>
+						<Grid item xs={12}>
+							<Typography variant="h2" component="h2">
+								Home Page
+							</Typography>
+							<Typography variant="h3" component="h3">
+								Count: {contador}
+							</Typography>
+						</Grid>
 						<Grid container>
 							<Grid item xs={12}>
 								<TextField
@@ -47,20 +74,6 @@ function Home() {
 								>
 									<Button onClick={increse}>Increse</Button>
 									<Button onClick={decrese}>Decrese</Button>
-								</ButtonGroup>
-							</Grid>
-							<Grid item xs={12}>
-								<ButtonGroup
-									variant="contained"
-									aria-label="outlined primary button group"
-									sx={{ marginTop: 2 }}
-								>
-									<Button component={RouterLink} to="/">
-										Home
-									</Button>
-									<Button component={RouterLink} to="/page1">
-										Page1
-									</Button>
 								</ButtonGroup>
 							</Grid>
 						</Grid>

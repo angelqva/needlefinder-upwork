@@ -1,0 +1,10 @@
+crear entorno virtual con los requisitos
+dentro de backend borrar (.sample) en (env.sample)
+abrir el entorno virtual y poner el directorio en backend
+ejecutar los siguientes comandos -:
+1-)py manage.py makemigrations
+2-)py manage.py migrate
+3-)py manage.py createsuperuser
+4-)rellenar los datos del usuario administrador
+5-)py manage.py runserver
+abrir el navegador en localhost:8000

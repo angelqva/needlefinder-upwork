@@ -12,6 +12,8 @@ import {
 	Typography,
 } from "@mui/material";
 
+import { FormattedMessage as Lang_ } from "react-intl";
+
 function Home() {
 	const dispatch = useDispatch();
 	const contador = useSelector((store) => store.count.count);
@@ -48,7 +50,7 @@ function Home() {
 						</Grid>
 						<Grid item xs={12}>
 							<Typography variant="h2" component="h2">
-								Home Page
+								<Lang_ id="Home" />
 							</Typography>
 							<Typography variant="h3" component="h3">
 								Count: {contador}

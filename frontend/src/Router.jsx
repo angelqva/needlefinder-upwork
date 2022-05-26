@@ -5,17 +5,33 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import generateStore from "./redux/store";
 import Home from "./views/Home";
 import Page1 from "./views/Page1";
+import message from "./i18n";
+import { IntlProvider } from "react-intl";
 const store = generateStore();
+
 function Router() {
 	return (
 		<StyledEngineProvider injectFirst>
 			<Provider store={store}>
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<Home />}></Route>
-						<Route path="/page1" element={<Page1 />}></Route>
-					</Routes>
-				</BrowserRouter>
+				<IntlProvider
+					locale="it"
+					timeZone="it-IT"
+					messages={{ ...message["it"] }}
+				>
+					<BrowserRouter>
+						<Routes>
+							<Route path="/" element={<Home />}>
+								{/* <Route index element={<Page1 />} /> */}
+								<Route path="page1" element={<Page1 />} />
+								{/* <Route path="example" element={<Custom />} />
+                            <Route path="profesores" element={<Profesores />} />
+                            <Route path="postgrados-nacionales" element={<Nacionales />} />
+                            <Route path="postgrados-internacionales" element={<Internacionales />} />
+                            <Route path="reportes" element={<Reportes />} />*/}
+							</Route>
+						</Routes>
+					</BrowserRouter>
+				</IntlProvider>
 			</Provider>
 		</StyledEngineProvider>
 	);
